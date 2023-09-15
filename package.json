@@ -21,18 +21,18 @@
     "lint": "eslint ./src",
     "lint:fix": "eslint --fix ./src"
   },
-  "lint-staged": {
-    "src/**/*.{js, jsx, ts, tsx}":[
-      "eslint --ext .tsx --ext .ts --ext .js --ext .jsx ./src --fix"
-    ],
-    "./src/**":[
-      "prettier --write."
-    ]
-  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "eslint --ext .tsx --ext .ts ./src"
+    ],
+    "./src/**": [
+      "prettier --check ./src"
+    ]
   },
   "eslintConfig": {
     "extends": [
